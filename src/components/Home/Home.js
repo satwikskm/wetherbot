@@ -3,6 +3,7 @@ import {useState} from 'react'
 import { FaCity,FaTemperatureHigh,FaTemperatureLow, } from 'react-icons/fa';
 import {TbTemperature} from 'react-icons/tb'
 import {WiHumidity} from 'react-icons/wi'
+import {GrMapLocation} from 'react-icons/gr'
 
 
 
@@ -12,7 +13,7 @@ const Home = () => {
     const[city,setCity]=useState()
     const [data,setData]=useState([])
     const key = "52c5a1a41b4740aa8b25d8f8f68e7c4b";
-    console.log(key,"key")
+  
     
     const api = async function(){
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`
@@ -22,6 +23,7 @@ const Home = () => {
        setData({
            data:response,
            city:response.name,
+           country:response.sys.country,
            temp:response.main.temp,
            min_temp:response.main.temp_min,
            max_temp:response.main.temp_max,
@@ -34,7 +36,7 @@ const Home = () => {
 
     })
     
-    console.log("data",response.name)
+    console.log("data",response.sys.country)
        
        
         
@@ -66,7 +68,12 @@ const Home = () => {
                     <h1>Weather Report</h1>
 
                     <div className="output-weather-top">
-                    <span className="city"><FaCity /> {data.city}</span>
+                    <span className="city">
+                        <i> <FaCity /> {data.city}</i>
+                       
+                    <i className="country"> <GrMapLocation />{data.country}</i>
+                   
+                    </span>
                     <span className="temp">
                         <i className="avg-temp"> <TbTemperature />  Average :{Math.round(data.temp - 273.15)} °C </i>
                         <i className="max-temp"> <FaTemperatureHigh /> Max: {Math.round(data.min_temp - 273.15)} °C</i>
