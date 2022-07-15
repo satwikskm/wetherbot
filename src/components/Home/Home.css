@@ -15,13 +15,13 @@
     
    background: rgb(122, 204, 234);
     padding: 30px 30px;
-    width: 20%;
+    width: 40%;
     align-items: center;
     justify-content: center;
     height: 40vh;
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgb(248, 182, 182);
-    transform: translateX(500px);
+    transform: translateX(400px);
     background-color: rgb(122, 204, 234);
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
@@ -41,4 +41,31 @@
     z-index: -1;
     transform: translateX(-80px);
 
+}
+.city{
+  
+    font-size: 40px;
+}
+
+.output-weather-top{
+   display: grid;
+   
+   grid-template-columns: 300px 300px;
+   
+}
+
+.temp{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.avg-temp{
+    font-size: 30px;
+}
+
+.desc{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
 }

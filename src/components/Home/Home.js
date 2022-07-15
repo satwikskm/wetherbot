@@ -1,14 +1,21 @@
 import React from 'react'
 import {useState} from 'react'
+import { FaCity,FaTemperatureHigh,FaTemperatureLow, } from 'react-icons/fa';
+import {TbTemperature} from 'react-icons/tb'
+import {WiHumidity} from 'react-icons/wi'
+
+
 
 import './Home.css'
 
 const Home = () => {
     const[city,setCity]=useState()
     const [data,setData]=useState([])
+    const key = "52c5a1a41b4740aa8b25d8f8f68e7c4b";
+    console.log(key,"key")
     
     const api = async function(){
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=52c5a1a41b4740aa8b25d8f8f68e7c4b`
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`
         const apidata = await fetch(url)
         const response = await apidata.json()
        console.log(response)
@@ -26,6 +33,7 @@ const Home = () => {
                 
 
     })
+    
     console.log("data",response.name)
        
        
@@ -56,7 +64,30 @@ const Home = () => {
                 </div>
                 <div className="output-box">
                     <h1>Weather Report</h1>
-                    <p>City : {data.city}<br />
+
+                    <div className="output-weather-top">
+                    <span className="city"><FaCity /> {data.city}</span>
+                    <span className="temp">
+                        <i className="avg-temp"> <TbTemperature />  Average :{Math.round(data.temp - 273.15)} °C </i>
+                        <i className="max-temp"> <FaTemperatureHigh /> Max: {Math.round(data.min_temp - 273.15)} °C</i>
+                        <i className="min-temp"> <FaTemperatureLow />  Min: {Math.round(data.max_temp - 273.15)} °C</i>
+                    
+                       
+       
+                    </span>
+                    <span className="desc">
+                        <h3>Others</h3>
+                        <i className="humidity"><WiHumidity /> {data.humidity} %</i>
+                        <i className="pressure">Pressure :  {data.pressure} Bar</i>
+                        <i className="weather">Weather Description : {data.weather} </i>
+                        <i className="details">  Live Weather : {data.description} </i>
+                    </span>
+                    
+
+                    </div>
+                   
+                    
+                    {/* <p>City : {data.city}<br />
                     Temp: {Math.round(data.temp - 273.15)} deg C <br />
                     Max-Temp: {Math.round(data.min_temp - 273.15)} deg C<br />
                     Min-Temp: {Math.round(data.max_temp - 273.15)} deg C<br />
@@ -64,7 +95,7 @@ const Home = () => {
                     Humidity: {data.humidity} %<br />
                     Weather: {data.weather} <br />
                     Description: {data.description}
-                    </p>
+                    </p> */}
 
                 </div>
             </div>
