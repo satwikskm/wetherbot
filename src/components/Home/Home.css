@@ -1,0 +1,44 @@
+
+.weather-card{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+
+}
+
+.output-box h1{
+    color: aliceblue;
+}
+
+.output-box{
+    
+   background: rgb(122, 204, 234);
+    padding: 30px 30px;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(248, 182, 182);
+    transform: translateX(500px);
+    background-color: rgb(122, 204, 234);
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+.search-box input{
+    width: 50%;
+    padding: 20px 20px;
+    border-radius: 30px;
+    font-size: 20px;
+    box-shadow: 10px 10px 10px rgb(129, 123, 123);
+}
+
+.btn-primary{
+    padding: 10px 10px;
+    border: none;
+    border-radius: 10px;
+    z-index: -1;
+    transform: translateX(-80px);
+
+}
